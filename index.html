@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Le Sommelier · Bar à Vin & Restaurante — Cap. Denis Roa 1543 casi Av. Santa Teresa, Asunción. Cocina francesa y europea de autor, bodega climatizada y catas de vinos. Reservá tu mesa por WhatsApp. 5 idiomas: ES/EN/PT/DE/FR.">
+<meta name="theme-color" content="#3a1116">
+<title>Le Sommelier · Bar à Vin & Restaurante — Asunción | Cocina Francesa & Vinos</title>
+
+<style>
+    :root {
+        --primary-color: #3a1116;
+        --primary-dark: #2a0b0f;
+        --accent-color: #c6a45c;
+        --accent-hover: #a98543;
+        --btc-color: #f7931a;
+        --bg-light: #f3e7d6;
+        --text-dark: #333333;
+        --text-muted: #6b6b6b;
+        --white: #ffffff;
+        --border-color: #e6d3ba;
+        --bg-body: #faf5ec;
+        --radius: 10px;
+        --safe-t: env(safe-area-inset-top, 0px);
+        --safe-b: env(safe-area-inset-bottom, 0px);
+        --safe-l: env(safe-area-inset-left, 0px);
+        --safe-r: env(safe-area-inset-right, 0px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-body);
+        color: var(--text-dark);
+        line-height: 1.6;
+        padding-left: var(--safe-l);
+        padding-right: var(--safe-r);
+        min-height: 100vh;
+    }
+
+    img { max-width: 100%; display: block; }
+    button, input, select { font-family: inherit; }
+
+    a.map-btn, a.btn-whatsapp, .hero-cta { -webkit-tap-highlight-color: transparent; }
+
+    /* Demo preview banner */
+    .demo-banner {
+        background: var(--accent-color);
+        color: var(--primary-color);
+        text-align: center;
+        padding: 10px 16px calc(10px + var(--safe-t));
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+        z-index: 100;
+    }
+
+    .demo-banner a {
+        background: var(--primary-color);
+        color: var(--white);
+        text-decoration: none;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 12.5px;
+        white-space: nowrap;
+    }
+
+    .demo-banner a:hover { background: var(--primary-dark); }
+
+    /* Top Bar & Language Selector */
+    .top-bar {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: calc(10px + var(--safe-t)) 20px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        flex-wrap: wrap;
+        gap: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+
+    .lang-switch { display: flex; gap: 5px; flex-wrap: wrap; }
+
+    .lang-switch button {
+        background: transparent;
+        border: 1px solid var(--accent-color);
+        color: var(--white);
+        padding: 5px 9px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 12px;
+        transition: background .2s, color .2s;
+        min-height: 30px;
+    }
+
+    .lang-switch button.active { background-color: var(--accent-color); color: var(--primary-color); }
+
+    .location-link {
+        color: var(--white);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        padding: 5px 8px;
+        border-radius: 6px;
+        transition: background .2s;
+        font-size: 13px;
+    }
+
+    .location-link:hover, .location-link:active { background: rgba(255,255,255,.15); text-decoration: underline; }
+
+    /* Header / Hero Section */
+    header {
+        background: linear-gradient(rgba(58,17,22,.82), rgba(42,11,15,.88)),
+                    url('assets/img/le-sommelier-entrada.webp') center/cover no-repeat;
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-align: center;
+        padding: clamp(44px, 8vw, 64px) 18px;
+    }
+
+    header .brand-tag { letter-spacing: .18em; font-size: 12px; text-transform: uppercase; color: var(--accent-color); margin-bottom: 8px; }
+    header h1 { font-size: clamp(2rem, 7vw, 3rem); margin-bottom: 6px; color: var(--white); letter-spacing: .02em; }
+    header h2.tagline { font-size: clamp(.95rem, 3vw, 1.15rem); color: var(--accent-color); font-style: italic; margin-bottom: 6px; font-weight: 500; }
+    header p.sub { font-size: clamp(.9rem, 2.8vw, 1.05rem); max-width: 680px; margin: 0 auto 20px; opacity: .94; }
+
+    .badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+
+    .badge {
+        background-color: rgba(255,255,255,.14);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12.5px;
+        border: 1px solid rgba(198,164,92,.45);
+        white-space: nowrap;
+    }
+
+    .badge.btc { border-color: var(--btc-color); color: var(--btc-color); font-weight: bold; }
+
+    .hero-cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-cta {
+        display: inline-block;
+        padding: 13px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
+        min-height: 46px;
+        line-height: 1.3;
+    }
+
+    .hero-cta.primary { background-color: var(--accent-color); color: var(--primary-color); }
+    .hero-cta.primary:hover { background-color: var(--accent-hover); color: var(--white); }
+    .hero-cta.ghost { border: 1.5px solid var(--accent-color); color: var(--accent-color); }
+    .hero-cta.ghost:hover { background: rgba(198,164,92,.15); }
+
+    /* Main Container */
+    .container { max-width: 1040px; margin: 0 auto; padding: 24px 16px calc(24px + var(--safe-b)); }
+
+    /* Section heading */
+    .section-title { text-align: center; color: var(--primary-color); margin-bottom: 18px; font-size: clamp(1.25rem, 4vw, 1.55rem); }
+
+    /* Info Section */
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-bottom: 34px;
+    }
+
+    .info-card {
+        background: var(--white);
+        padding: 18px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,.02);
+    }
+
+    .info-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+        font-size: 1rem;
+    }
+
+    .info-card p, .info-card a { font-size: .92rem; }
+
+    .map-btn {
+        display: inline-block;
+        margin-top: 10px;
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        padding: 9px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        transition: background .2s;
+        min-height: 40px;
+        line-height: 22px;
+    }
+
+    .map-btn:hover, .map-btn:active { background-color: var(--accent-hover); color: var(--white); }
+
+    /* Gallery Section */
+    .gallery-section { margin-bottom: 36px; }
+
+    .gallery-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,.03);
+        width: min(72vw, 240px);
+    }
+
+    .gallery-card .img-wrap { aspect-ratio: 2 / 3; overflow: hidden; background: var(--border-color); }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+    .gallery-card p { padding: 12px; font-size: 13px; text-align: center; color: var(--primary-color); font-weight: bold; }
+
+    /* Menu image cards use the phone-screenshot ratio */
+    .menu-imgs .gallery-card { width: min(72vw, 260px); }
+    .menu-imgs .img-wrap { aspect-ratio: 1125 / 2436; }
+    .menu-imgs .gallery-card img { object-fit: cover; }
+
+    /* Wine cellar section */
+    .cellar-section {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        color: var(--white);
+        border-radius: var(--radius);
+        padding: clamp(20px, 4vw, 32px);
+        margin-bottom: 36px;
+    }
+
+    .cellar-section .section-title { color: var(--white); }
+    .cellar-section .cellar-intro { text-align: center; max-width: 680px; margin: 0 auto 20px; font-size: .95rem; color: rgba(255,255,255,.9); }
+    .cellar-section .cellar-intro strong { color: var(--accent-color); }
+    .cellar-section .gallery-card { background: rgba(255,255,255,.06); border-color: rgba(198,164,92,.35); }
+    .cellar-section .gallery-card p { color: var(--white); }
+
+    /* Video Section */
+    .video-section { margin-bottom: 36px; }
+
+    .video-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .video-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,.03);
+        position: relative;
+        width: min(72vw, 240px);
+    }
+
+    .video-card video {
+        width: 100%;
+        display: block;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        background: #111;
+    }
+
+    .video-card video::-webkit-media-controls { z-index: 3; }
+
+    .video-play {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,.28);
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-play .play-circle {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: rgba(198,164,92,.94);
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        padding-left: 3px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.35);
+    }
+
+    .video-card.playing .video-play { display: none; }
+    .video-card p { padding: 10px 12px; font-size: 13px; text-align: center; color: var(--primary-color); font-weight: bold; }
+
+    /* Lightbox */
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.92);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 92vh; border-radius: 8px; }
+
+    .lightbox-close {
+        position: absolute;
+        top: calc(12px + var(--safe-t));
+        right: 14px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255,255,255,.15);
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Reusable horizontal carousel */
+    .carousel { position: relative; }
+
+    .carousel-track {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 2px 2px 8px;
+        scroll-padding-left: 2px;
+    }
+
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-track > * { flex: 0 0 auto; scroll-snap-align: start; }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid var(--border-color);
+        background: var(--white);
+        color: var(--primary-color);
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,.12);
+        z-index: 5;
+    }
+
+    .carousel-arrow:hover, .carousel-arrow:active { background: var(--accent-color); color: var(--white); }
+    .carousel-arrow.prev { left: -6px; }
+    .carousel-arrow.next { right: -6px; }
+    .carousel-arrow[disabled] { opacity: .35; cursor: default; pointer-events: none; }
+
+    @media (max-width: 520px) {
+        .carousel-arrow { width: 30px; height: 30px; font-size: 16px; }
+        .carousel-arrow.prev { left: -2px; }
+        .carousel-arrow.next { right: -2px; }
+    }
+
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
+
+    .carousel-dots button {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        border: none;
+        background: var(--border-color);
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .carousel-dots button.active { background: var(--accent-color); width: 18px; border-radius: 4px; transition: width .2s; }
+
+    /* Menu Section */
+    .menu-section {
+        background: var(--white);
+        padding: clamp(18px, 4vw, 30px);
+        border-radius: var(--radius);
+        border: 1px solid var(--border-color);
+        margin-bottom: 36px;
+    }
+
+    .menu-tabs {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .menu-tab {
+        border: 1.5px solid var(--border-color);
+        background: var(--bg-body);
+        color: var(--text-dark);
+        padding: 9px 12px;
+        border-radius: 24px;
+        font-weight: bold;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: all .2s;
+        min-height: 40px;
+    }
+
+    .menu-tab.active { background: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
+
+    .menu-note { text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 16px; }
+
+    /* Booking & Checkout Section */
+    .booking-section {
+        background: var(--white);
+        padding: clamp(18px, 4vw, 30px);
+        border-radius: var(--radius);
+        border: 2px solid var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0,0,0,.05);
+        scroll-margin-top: 70px;
+    }
+
+    .booking-section h2 { color: var(--primary-color); margin-bottom: 6px; text-align: center; }
+    .booking-section .booking-sub { text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        background: var(--white);
+        color: var(--text-dark);
+        min-height: 44px;
+    }
+
+    .form-control:focus { outline: 2px solid var(--accent-color); outline-offset: 1px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+    /* Payment Selector */
+    .payment-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .payment-option {
+        border: 2px solid var(--border-color);
+        padding: 12px 10px;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: bold;
+        transition: border-color .2s, background .2s;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .payment-option:hover { border-color: var(--accent-color); }
+    .payment-option.selected { border-color: var(--primary-color); background-color: #f3e7d6; }
+    .payment-option.btc-option.selected { border-color: var(--btc-color); background-color: #fff8f0; color: var(--btc-color); }
+
+    /* Action Buttons */
+    .btn-submit {
+        width: 100%;
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background .2s;
+        min-height: 48px;
+    }
+
+    .btn-submit:hover, .btn-submit:active { background-color: var(--primary-dark); }
+
+    .btn-social {
+        width: 100%;
+        color: var(--white);
+        padding: 13px;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        min-height: 46px;
+        transition: filter .2s;
+    }
+
+    .btn-social:hover, .btn-social:active { filter: brightness(0.92); }
+
+    .btn-whatsapp { background-color: #25d366; }
+
+    /* Modal Overlay for Payment Demo */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 16px;
+    }
+
+    .modal-content {
+        background: var(--white);
+        padding: 24px;
+        border-radius: var(--radius);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .qr-placeholder {
+        width: min(190px, 60vw);
+        height: min(190px, 60vw);
+        background: #fff;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed #ccc;
+        font-weight: bold;
+        color: #666;
+        text-align: center;
+        font-size: 13px;
+        padding: 8px;
+        border-radius: 10px;
+    }
+
+    footer { text-align: center; font-size: 12px; color: var(--text-muted); padding: 10px 16px calc(20px + var(--safe-b)); }
+    footer .footer-line { margin: 2px 0; }
+
+    @media (max-width: 600px) {
+        .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; scroll-behavior: auto !important; }
+    }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+    <span data-i18n="demoBanner">👀 Esto es solo un adelanto de lo que podría ser su sitio web —</span>
+    <a href="propuesta_comercial.html" data-i18n="demoBannerCta">¿Les gustó? Vean la propuesta comercial aquí →</a>
+</div>
+
+<!-- Top Bar with Language Switcher -->
+<div class="top-bar">
+    <a href="https://maps.app.goo.gl/GGhspahkuP97quZP6" target="_blank" rel="noopener" class="location-link" aria-label="Abrir ubicación en Google Maps" data-i18n="locationShort">📍 Cap. Denis Roa 1543 · Asunción</a>
+    <div class="lang-switch" role="group" aria-label="Selector de idioma">
+        <button id="btn-es" class="active" onclick="switchLang('es')" aria-pressed="true">ES 🇪🇸</button>
+        <button id="btn-en" onclick="switchLang('en')" aria-pressed="false">EN 🇬🇧</button>
+        <button id="btn-pt" onclick="switchLang('pt')" aria-pressed="false">PT 🇧🇷</button>
+        <button id="btn-de" onclick="switchLang('de')" aria-pressed="false">DE 🇩🇪</button>
+        <button id="btn-fr" onclick="switchLang('fr')" aria-pressed="false">FR 🇫🇷</button>
+    </div>
+</div>
+
+<!-- Hero Header -->
+<header>
+    <div class="brand-tag" data-i18n="brandTag">LE SOMMELIER · BAR À VIN &amp; RESTAURANT</div>
+    <h1>Le Sommelier</h1>
+    <h2 class="tagline" data-i18n="tagline">La mesa paraguaya con alma francesa</h2>
+    <p class="sub" data-i18n="heroSubtitle">Cocina francesa y europea de autor, una bodega climatizada con vinos sudamericanos a precio justo y un ambiente cálido en Ycuá Satí. Del chef Olivier Gayet — para quienes aman el buen vino y la buena mesa.</p>
+
+    <div class="badges">
+        <span class="badge">🇫🇷 <span data-i18n="badgeFrench">Cocina Francesa</span></span>
+        <span class="badge">🍷 <span data-i18n="badgeWine">Bar à Vin</span></span>
+        <span class="badge">🥂 <span data-i18n="badgeCellar">Bodega Climatizada</span></span>
+        <span class="badge">🍇 <span data-i18n="badgeTasting">Catas &amp; Maridajes</span></span>
+        <span class="badge">⭐ 4.5 · Tripadvisor</span>
+    </div>
+
+    <div class="hero-cta-row">
+        <a href="#booking" class="hero-cta primary" data-i18n="ctaBook">Reservá tu mesa</a>
+        <a href="#cellar" class="hero-cta ghost" data-i18n="ctaCellar">🍷 Bodega &amp; Catas</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Essential Info Section -->
+    <div class="info-grid">
+        <div class="info-card">
+            <h3 data-i18n="hoursTitle">🕒 Horarios</h3>
+            <p id="hoursText" data-i18n-html="hoursText">Lunes a Viernes: 11:00 - 23:00 hs<br>Sábado: 17:00 - 00:30 hs<br>Domingo: Cerrado</p>
+        </div>
+        <div class="info-card">
+            <h3 data-i18n="locationTitle">📍 Ubicación</h3>
+            <p data-i18n-html="locationText">Cap. Denis Roa 1543 casi Av. Sta. Teresa.<br>Ycuá Satí, Asunción, Paraguay.</p>
+            <a href="https://maps.app.goo.gl/GGhspahkuP97quZP6" target="_blank" rel="noopener" class="map-btn" data-i18n="mapBtnText">📍 Ver en Google Maps</a>
+        </div>
+        <div class="info-card">
+            <h3 data-i18n="contactTitle">📲 Contacto Directo</h3>
+            <p>
+               WhatsApp: <a id="waLink" href="https://wa.me/595982479037" target="_blank" rel="noopener" data-i18n="waDisplay">+595 982 479 037</a><br>
+               Teléfono: <a href="tel:+59521622622">+595 21 622 622</a><br>
+               Facebook: <a href="https://www.facebook.com/Le-Sommelier-Bar-a-vin-Restaurante-343776818980540" target="_blank" rel="noopener">Le Sommelier Bar à Vin</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Photo Gallery -->
+    <div class="gallery-section">
+        <h2 class="section-title" data-i18n="galleryTitle">Galería &amp; Platos de la Casa</h2>
+        <div class="carousel" data-carousel>
+            <button type="button" class="carousel-arrow prev" onclick="carouselStep(this,-1)" aria-label="Anterior">‹</button>
+            <div class="carousel-track">
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/sala.webp" alt="Le Sommelier — Sala y ambiente" loading="lazy"></div>
+                    <p data-i18n="gal01">Sala &amp; Ambiente</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/le-sommelier-entrada.webp" alt="Le Sommelier — La entrada" loading="lazy"></div>
+                    <p data-i18n="gal02">La Entrada</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/wine-cellar.webp" alt="Le Sommelier — Bodega climatizada" loading="lazy"></div>
+                    <p data-i18n="gal03">Bodega Climatizada</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/wine-cellar-2.webp" alt="Le Sommelier — Bodega y botellas" loading="lazy"></div>
+                    <p data-i18n="gal04">Bodega &amp; Botellas</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/wine-cellar-3.webp" alt="Le Sommelier — Selección de vinos" loading="lazy"></div>
+                    <p data-i18n="gal05">La Selección del Sommelier</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/escargot.webp" alt="Le Sommelier — Escargots de Bourgogne" loading="lazy"></div>
+                    <p data-i18n="gal06">Escargots de Bourgogne</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/salmon.webp" alt="Le Sommelier — Salmón a la plancha" loading="lazy"></div>
+                    <p data-i18n="gal07">Salmón a la Plancha</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/salmon-espinaca.webp" alt="Le Sommelier — Salmón con espinaca" loading="lazy"></div>
+                    <p data-i18n="gal08">Salmón con Espinaca</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/steak-papa.webp" alt="Le Sommelier — Steak y papas" loading="lazy"></div>
+                    <p data-i18n="gal09">Steak &amp; Papas</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/carne-y-verdadura.webp" alt="Le Sommelier — Carnes y verduras" loading="lazy"></div>
+                    <p data-i18n="gal10">Carnes &amp; Verduras</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/creme-brulee.webp" alt="Le Sommelier — Crème brûlée" loading="lazy"></div>
+                    <p data-i18n="gal11">Crème Brûlée</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/postre.webp" alt="Le Sommelier — Postre de la casa" loading="lazy"></div>
+                    <p data-i18n="gal12">Postre de la Casa</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-bourgogne.webp" alt="Le Sommelier — Vino de Borgoña" loading="lazy"></div>
+                    <p data-i18n="gal13">Vino de Borgoña</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-cabernet.webp" alt="Le Sommelier — Cabernet Sauvignon" loading="lazy"></div>
+                    <p data-i18n="gal14">Cabernet Sauvignon</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-blanco.webp" alt="Le Sommelier — Vino blanco" loading="lazy"></div>
+                    <p data-i18n="gal15">Vino Blanco</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-valduevo.webp" alt="Le Sommelier — Valduero" loading="lazy"></div>
+                    <p data-i18n="gal16">Valduero</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-syrah.webp" alt="Le Sommelier — Syrah" loading="lazy"></div>
+                    <p data-i18n="gal17">Syrah</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9802.webp" alt="Le Sommelier — Ambiente y servicio" loading="lazy"></div>
+                    <p data-i18n="gal18">Ambiente &amp; Servicio</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9810.webp" alt="Le Sommelier — La casa" loading="lazy"></div>
+                    <p data-i18n="gal19">La Casa</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9812.webp" alt="Le Sommelier — Platos de la casa" loading="lazy"></div>
+                    <p data-i18n="gal20">Platos de la Casa</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9814.webp" alt="Le Sommelier — Bar y vinos" loading="lazy"></div>
+                    <p data-i18n="gal21">Bar &amp; Vinos</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9816.webp" alt="Le Sommelier — Detalles de la mesa" loading="lazy"></div>
+                    <p data-i18n="gal22">Detalles de la Mesa</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9818.webp" alt="Le Sommelier — Servicio de mesa" loading="lazy"></div>
+                    <p data-i18n="gal23">Servicio de Mesa</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/IMG_9820.webp" alt="Le Sommelier — La carta y vinos" loading="lazy"></div>
+                    <p data-i18n="gal24">La Carta &amp; Vinos</p>
+                </div>
+            </div>
+            <button type="button" class="carousel-arrow next" onclick="carouselStep(this,1)" aria-label="Siguiente">›</button>
+        </div>
+        <div class="carousel-dots"></div>
+        <p style="text-align:center; font-size:12px; color:var(--text-muted); margin-top:10px;" data-i18n="galleryNote">
+            Fotos reales de la casa y de nuestra ficha de Google Maps. Tocá cualquier foto para verla en grande.
+        </p>
+    </div>
+
+    <!-- Wine Cellar -->
+    <div class="cellar-section" id="cellar">
+        <h2 class="section-title" data-i18n="cellarTitle">🍷 La Bodega &amp; la Cata</h2>
+        <p class="cellar-intro" data-i18n="cellarIntro">
+            <strong>Bodega climatizada</strong> en el sótano con una selección de expertos de vinos sudamericanos y franceses a precio justo. Organizamos <strong>cenas maridaje</strong> y <strong>cursos de cata</strong> — preguntá por el próximo encuentro.
+        </p>
+        <div class="carousel" data-carousel>
+            <button type="button" class="carousel-arrow prev" onclick="carouselStep(this,-1)" aria-label="Anterior">‹</button>
+            <div class="carousel-track">
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/wine-cellar-2.webp" alt="Le Sommelier — Bodega" loading="lazy"></div>
+                    <p data-i18n="cellar1">Bodega Climatizada</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-bourgogne.webp" alt="Le Sommelier — Borgoña" loading="lazy"></div>
+                    <p data-i18n="cellar2">Borgoña 🇫🇷</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-cabernet.webp" alt="Le Sommelier — Cabernet" loading="lazy"></div>
+                    <p data-i18n="cellar3">Cabernet Sauvignon</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-concha-y-toro.webp" alt="Le Sommelier — Concha y Toro" loading="lazy"></div>
+                    <p data-i18n="cellar4">Concha y Toro 🇨🇱</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-marius.webp" alt="Le Sommelier — Marius" loading="lazy"></div>
+                    <p data-i18n="cellar5">Marius</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-studio.webp" alt="Le Sommelier — Studio Wine" loading="lazy"></div>
+                    <p data-i18n="cellar6">Studio Wine</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-syrah.webp" alt="Le Sommelier — Syrah" loading="lazy"></div>
+                    <p data-i18n="cellar7">Syrah</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-valduevo.webp" alt="Le Sommelier — Valduero" loading="lazy"></div>
+                    <p data-i18n="cellar8">Valduero</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="img-wrap"><img src="assets/img/vino-blanco.webp" alt="Le Sommelier — Vino blanco" loading="lazy"></div>
+                    <p data-i18n="cellar9">Vino Blanco</p>
+                </div>
+            </div>
+            <button type="button" class="carousel-arrow next" onclick="carouselStep(this,1)" aria-label="Siguiente">›</button>
+        </div>
+        <div class="carousel-dots"></div>
+    </div>
+
+    <!-- Video Walkthrough -->
+    <div class="video-section">
+        <h2 class="section-title" data-i18n="videoTitle">Video · Recorrido de la Casa</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <video id="video1" preload="none" playsinline muted controls
+                       poster="assets/video/recorrido-1-poster.jpg"
+                       src="assets/video/recorrido-1.mp4"
+                       aria-label="Recorrido de la casa"></video>
+                <button type="button" class="video-play" onclick="toggleVideo('video1', this)" aria-label="Reproducir video">
+                    <span class="play-circle">▶</span>
+                </button>
+                <p data-i18n="videoCap1">Recorrido por la casa &amp; el salón</p>
+            </div>
+            <div class="video-card">
+                <video id="video2" preload="none" playsinline muted controls
+                       poster="assets/video/recorrido-2-poster.jpg"
+                       src="assets/video/recorrido-2.mp4"
+                       aria-label="Recorrido de la casa"></video>
+                <button type="button" class="video-play" onclick="toggleVideo('video2', this)" aria-label="Reproducir video">
+                    <span class="play-circle">▶</span>
+                </button>
+                <p data-i18n="videoCap2">La bodega &amp; la propuesta de vinos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Digital Menu (menu images) -->
+    <div class="menu-section">
+        <h2 class="section-title" data-i18n="menuTitle">Menú Digital</h2>
+
+        <div class="menu-tabs" id="menuTabs" role="tablist">
+            <button type="button" class="menu-tab active" data-cat="carta" onclick="switchMenuTab(this)">📖 <span data-i18n="tabCarta">La Carta</span></button>
+            <button type="button" class="menu-tab" data-cat="entradas" onclick="switchMenuTab(this)">🥗 <span data-i18n="tabEntradas">Entradas &amp; Sopas</span></button>
+            <button type="button" class="menu-tab" data-cat="aves" onclick="switchMenuTab(this)">🐟 <span data-i18n="tabAves">Aves &amp; Pescados</span></button>
+            <button type="button" class="menu-tab" data-cat="carnes" onclick="switchMenuTab(this)">🥩 <span data-i18n="tabCarnes">Carnes</span></button>
+            <button type="button" class="menu-tab" data-cat="ensaladas" onclick="switchMenuTab(this)">🍝 <span data-i18n="tabEnsaladas">Ensaladas, Risottos &amp; Pastas</span></button>
+        </div>
+
+        <div class="menu-imgs">
+            <div class="carousel" data-carousel id="menuCarousel">
+                <button type="button" class="carousel-arrow prev" onclick="carouselStep(this,-1)" aria-label="Anterior">‹</button>
+                <div class="carousel-track" id="menuTrack"></div>
+                <button type="button" class="carousel-arrow next" onclick="carouselStep(this,1)" aria-label="Siguiente">›</button>
+            </div>
+            <div class="carousel-dots"></div>
+        </div>
+
+        <p class="menu-note" data-i18n="menuNote">Carta en imagen — tocá cualquier foto para verla en grande. Los precios se confirman al momento de la orden.</p>
+    </div>
+
+    <!-- Interactive Booking -->
+    <div class="booking-section" id="booking">
+        <h2 data-i18n="bookingTitle">Reserva de Mesa</h2>
+        <p class="booking-sub" data-i18n="bookingSub">Directo en el sitio o por WhatsApp. Coordinamos catas, cenas maridaje y eventos privados.</p>
+        <form id="bookingForm" onsubmit="handleBooking(event)">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fld-name" data-i18n="lblName">Nombre Completo</label>
+                    <input id="fld-name" type="text" class="form-control" required placeholder="John Doe" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="fld-phone" data-i18n="lblPhone">WhatsApp / Teléfono</label>
+                    <input id="fld-phone" type="tel" class="form-control" required placeholder="+595 982 ..." autocomplete="tel">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fld-date" data-i18n="lblDate">Fecha</label>
+                    <input id="fld-date" type="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="fld-time" data-i18n="lblTime">Hora</label>
+                    <select id="fld-time" class="form-control" required>
+                        <option value="12:00">12:00 hs</option>
+                        <option value="13:30">13:30 hs</option>
+                        <option value="15:00">15:00 hs</option>
+                        <option value="19:00">19:00 hs</option>
+                        <option value="20:30">20:30 hs</option>
+                        <option value="22:00">22:00 hs</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fld-party" data-i18n="lblParty">Personas</label>
+                    <input id="fld-party" type="number" class="form-control" required min="1" max="20" value="2">
+                </div>
+                <div class="form-group">
+                    <label for="passOption" data-i18n="lblOption">Opción de Reserva</label>
+                    <select class="form-control" id="passOption">
+                        <option value="free" data-i18n="optFree">Reserva de Mesa Estándar (Sin costo previo)</option>
+                        <option value="cata" data-i18n="optCata">Experiencia de Cata de Vinos (150.000 PYG / ~$20 USD)</option>
+                        <option value="degustacion" data-i18n="optDegustacion">Menú Degustación con Maridaje (350.000 PYG / ~$47 USD)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-i18n="lblPayment">Método de Pago</label>
+                <div class="payment-methods" role="radiogroup">
+                    <div class="payment-option selected" onclick="selectPayment(this, 'qr')" role="radio" aria-checked="true" tabindex="0">💳 QR / SIPAP</div>
+                    <div class="payment-option btc-option" onclick="selectPayment(this, 'btc')" role="radio" aria-checked="false" tabindex="0">⚡ Bitcoin / LN</div>
+                    <div class="payment-option" onclick="selectPayment(this, 'card')" role="radio" aria-checked="false" tabindex="0">🌐 Card</div>
+                    <div class="payment-option" onclick="selectPayment(this, 'cash')" role="radio" aria-checked="false" tabindex="0">💵 En Local / Cash</div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" data-i18n="btnSubmit">Confirmar Reserva</button>
+        </form>
+
+        <div style="margin-top: 15px; text-align: center;">
+            <span style="font-size: 13px; color: #777;" data-i18n="textWhatsappDesc">¿Preferís hablar directo por WhatsApp?</span>
+            <a id="waCTA" href="https://wa.me/595982479037?text=Hola%20Le%20Sommelier%2C%20quiero%20reservar%20una%20mesa" target="_blank" rel="noopener" class="btn-social btn-whatsapp" data-i18n="btnWhatsapp">
+                💬 Escribir por WhatsApp
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p class="footer-line" data-i18n="footerText">Le Sommelier · Bar à Vin &amp; Restaurante · Cap. Denis Roa 1543, Asunción · Todos los derechos reservados.</p>
+    <p class="footer-line" data-i18n="footerCrypto">🍷 Buena mesa, buenos vinos — un rincón de Francia en el corazón de Asunción.</p>
+</footer>
+
+<!-- Lightbox for Gallery -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button type="button" class="lightbox-close" onclick="closeLightbox(event)" aria-label="Cerrar">✕</button>
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- Modal Demo Payment -->
+<div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+        <h3 id="modal-title">Escanea para Pagar</h3>
+        <p style="font-size: 14px; margin-top: 5px; color: #555;" id="modal-desc">Paga tu reserva de forma instantánea.</p>
+        <div class="qr-placeholder" id="qr-box">[ DEMO QR CODE ]</div>
+        <p style="font-size: 12px; color: #888;" id="modal-amount">Monto: 50.000 PYG</p>
+        <button class="btn-submit" style="margin-top: 15px; background-color: #666;" onclick="closeModal()" id="modal-close-text">Cerrar</button>
+    </div>
+</div>
+
+<script>
+/* =========================================================
+   Le Sommelier · Bar à Vin & Restaurante — app.js
+   Single data-driven i18n engine (ES/EN/PT/DE/FR) + gallery
+   carousels + menu in images + booking via WhatsApp.
+   ========================================================= */
+
+/* ---------------- CONFIG (edit here) ---------------- */
+const CONFIG = {
+    // Real WhatsApp number (country code + number, digits only)
+    waNumber: "595982479037",
+    waDisplay: "+595 982 479 037",
+    landline: "+595 21 622 622",
+    mapsUrl: "https://maps.app.goo.gl/GGhspahkuP97quZP6",
+    facebookUrl: "https://www.facebook.com/Le-Sommelier-Bar-a-vin-Restaurante-343776818980540/",
+    // Indicative amounts for paid reservation options (PYG)
+    comboPrices: { 'cata': 150000, 'degustacion': 350000 },
+    // Opening hours (per language, edit once)
+    hours: {
+        es: "Lunes a Viernes: 11:00 - 23:00 hs<br>Sábado: 17:00 - 00:30 hs<br>Domingo: Cerrado",
+        en: "Monday to Friday: 11:00 AM - 11:00 PM<br>Saturday: 05:00 PM - 12:30 AM<br>Sunday: Closed",
+        pt: "Segunda a Sexta: 11:00 - 23:00 hs<br>Sábado: 17:00 - 00:30 hs<br>Domingo: Fechado",
+        de: "Montag bis Freitag: 11:00 - 23:00 Uhr<br>Samstag: 17:00 - 00:30 Uhr<br>Sonntag: Geschlossen",
+        fr: "Lundi à Vendredi : 11h00 - 23h00<br>Samedi : 17h00 - 00h30<br>Dimanche : Fermé"
+    }
+};
+
+const WA_LINK = "https://wa.me/" + CONFIG.waNumber;
+/* ---------------- END CONFIG ---------------- */
+
+/* ---------------- Translations ---------------- */
+const i18n = {
+    es: {
+        demoBanner: "👀 Esto es solo un adelanto de lo que podría ser su sitio web —",
+        demoBannerCta: "¿Les gustó? Vean la propuesta comercial aquí →",
+        locationShort: "📍 Cap. Denis Roa 1543 · Asunción",
+        brandTag: "LE SOMMELIER · BAR À VIN & RESTAURANT",
+        tagline: "La mesa paraguaya con alma francesa",
+        heroSubtitle: "Cocina francesa y europea de autor, una bodega climatizada con vinos sudamericanos a precio justo y un ambiente cálido en Ycuá Satí. Del chef Olivier Gayet — para quienes aman el buen vino y la buena mesa.",
+        ctaBook: "Reservá tu mesa",
+        ctaCellar: "🍷 Bodega & Catas",
+        badgeFrench: "Cocina Francesa",
+        badgeWine: "Bar à Vin",
+        badgeCellar: "Bodega Climatizada",
+        badgeTasting: "Catas & Maridajes",
+        hoursTitle: "🕒 Horarios",
+        hoursText: CONFIG.hours.es,
+        locationTitle: "📍 Ubicación",
+        locationText: "Cap. Denis Roa 1543 casi Av. Sta. Teresa.<br>Ycuá Satí, Asunción, Paraguay.",
+        mapBtnText: "📍 Ver en Google Maps",
+        contactTitle: "📲 Contacto Directo",
+        waDisplay: CONFIG.waDisplay,
+        galleryTitle: "Galería & Platos de la Casa",
+        galleryNote: "Fotos reales de la casa y de nuestra ficha de Google Maps. Tocá cualquier foto para verla en grande.",
+        gal01: "Sala & Ambiente",
+        gal02: "La Entrada",
+        gal03: "Bodega Climatizada",
+        gal04: "Bodega & Botellas",
+        gal05: "La Selección del Sommelier",
+        gal06: "Escargots de Bourgogne",
+        gal07: "Salmón a la Plancha",
+        gal08: "Salmón con Espinaca",
+        gal09: "Steak & Papas",
+        gal10: "Carnes & Verduras",
+        gal11: "Crème Brûlée",
+        gal12: "Postre de la Casa",
+        gal13: "Vino de Borgoña",
+        gal14: "Cabernet Sauvignon",
+        gal15: "Vino Blanco",
+        gal16: "Valduero",
+        gal17: "Syrah",
+        gal18: "Ambiente & Servicio",
+        gal19: "La Casa",
+        gal20: "Platos de la Casa",
+        gal21: "Bar & Vinos",
+        gal22: "Detalles de la Mesa",
+        gal23: "Servicio de Mesa",
+        gal24: "La Carta & Vinos",
+        cellarTitle: "🍷 La Bodega & la Cata",
+        cellarIntro: "<strong>Bodega climatizada</strong> en el sótano con una selección de expertos de vinos sudamericanos y franceses a precio justo. Organizamos <strong>cenas maridaje</strong> y <strong>cursos de cata</strong> — preguntá por el próximo encuentro.",
+        cellar1: "Bodega Climatizada",
+        cellar2: "Borgoña 🇫🇷",
+        cellar3: "Cabernet Sauvignon",
+        cellar4: "Concha y Toro 🇨🇱",
+        cellar5: "Marius",
+        cellar6: "Studio Wine",
+        cellar7: "Syrah",
+        cellar8: "Valduero",
+        cellar9: "Vino Blanco",
+        videoTitle: "Video · Recorrido de la Casa",
+        videoCap1: "Recorrido por la casa & el salón",
+        videoCap2: "La bodega & la propuesta de vinos",
+        menuTitle: "Menú Digital",
+        menuNote: "Carta en imagen — tocá cualquier foto para verla en grande. Los precios se confirman al momento de la orden.",
+        tabCarta: "La Carta",
+        tabEntradas: "Entradas & Sopas",
+        tabAves: "Aves & Pescados",
+        tabCarnes: "Carnes",
+        tabEnsaladas: "Ensaladas, Risottos & Pastas",
+        menuImg1: "La Carta · Menú del Chef Olivier Gayet",
+        menuImg2: "Aves & Pescados",
+        menuImg3: "Carnes",
+        menuImg4: "Ensaladas, Risottos & Pastas",
+        menuImg5: "Entradas & Sopas",
+        bookingTitle: "Reserva de Mesa",
+        bookingSub: "Directo en el sitio o por WhatsApp. Coordinamos catas, cenas maridaje y eventos privados.",
+        lblName: "Nombre Completo",
+        lblPhone: "WhatsApp / Teléfono",
+        lblDate: "Fecha",
+        lblTime: "Hora",
+        lblParty: "Personas",
+        lblOption: "Opción de Reserva",
+        lblPayment: "Método de Pago",
+        btnSubmit: "Confirmar Reserva",
+        optFree: "Reserva de Mesa Estándar (Sin costo previo)",
+        optCata: "Experiencia de Cata de Vinos (150.000 PYG / ~$20 USD)",
+        optDegustacion: "Menú Degustación con Maridaje (350.000 PYG / ~$47 USD)",
+        payQR: "💳 QR / SIPAP",
+        payBTC: "⚡ Bitcoin / LN",
+        payCard: "🌐 Card",
+        payCash: "💵 En Local / Cash",
+        modalTitle: "Escanea para Pagar",
+        modalDesc: "Paga tu reserva de forma instantánea.",
+        modalAmount: "Monto: {amount} PYG",
+        modalClose: "Cerrar",
+        modalBtcTitle: "⚡ Pago con Bitcoin (Lightning)",
+        modalQrTitle: "💳 Pago vía QR / SIPAP",
+        textWhatsappDesc: "¿Preferís hablar directo por WhatsApp?",
+        btnWhatsapp: "💬 Escribir por WhatsApp",
+        footerText: "Le Sommelier · Bar à Vin & Restaurante · Cap. Denis Roa 1543, Asunción · Todos los derechos reservados.",
+        footerCrypto: "🍷 Buena mesa, buenos vinos — un rincón de Francia en el corazón de Asunción.",
+        confirmMsg: "¡Reserva enviada por WhatsApp! Te confirmamos a la brevedad. ¡Nos vemos en Le Sommelier! 🍷",
+        waBookingIntro: "Hola Le Sommelier! Quiero reservar una mesa:",
+        waFieldName: "Nombre",
+        waFieldPhone: "Teléfono",
+        waFieldDate: "Fecha",
+        waFieldTime: "Hora",
+        waFieldParty: "Personas",
+        waFieldOption: "Opción",
+        waFieldPayment: "Pago"
+    },
+    en: {
+        demoBanner: "👀 This is just a preview of what your website could look like —",
+        demoBannerCta: "Like it? See the business proposal here →",
+        locationShort: "📍 Cap. Denis Roa 1543 · Asunción",
+        brandTag: "LE SOMMELIER · BAR À VIN & RESTAURANT",
+        tagline: "The Paraguayan table with a French soul",
+        heroSubtitle: "Signature French and European cuisine, a climate-controlled cellar with South American wines at a fair price, and a warm atmosphere in Ycuá Satí. By chef Olivier Gayet — for those who love good wine and good food.",
+        ctaBook: "Book a table",
+        ctaCellar: "🍷 Cellar & Tastings",
+        badgeFrench: "French Cuisine",
+        badgeWine: "Bar à Vin",
+        badgeCellar: "Climate-Controlled Cellar",
+        badgeTasting: "Tastings & Pairings",
+        hoursTitle: "🕒 Opening Hours",
+        hoursText: CONFIG.hours.en,
+        locationTitle: "📍 Location",
+        locationText: "Cap. Denis Roa 1543 cor. Sta. Teresa Ave.<br>Ycuá Satí, Asunción, Paraguay.",
+        mapBtnText: "📍 View on Google Maps",
+        contactTitle: "📲 Direct Contact",
+        waDisplay: CONFIG.waDisplay,
+        galleryTitle: "Gallery & House Dishes",
+        galleryNote: "Real photos from our house and Google Maps listing. Tap any photo to view it full-size.",
+        gal01: "Dining Room & Atmosphere",
+        gal02: "The Entrance",
+        gal03: "Climate-Controlled Cellar",
+        gal04: "Cellar & Bottles",
+        gal05: "The Sommelier's Selection",
+        gal06: "Escargots de Bourgogne",
+        gal07: "Grilled Salmon",
+        gal08: "Salmon with Spinach",
+        gal09: "Steak & Potatoes",
+        gal10: "Meats & Vegetables",
+        gal11: "Crème Brûlée",
+        gal12: "House Dessert",
+        gal13: "Burgundy Wine",
+        gal14: "Cabernet Sauvignon",
+        gal15: "White Wine",
+        gal16: "Valduero",
+        gal17: "Syrah",
+        gal18: "Atmosphere & Service",
+        gal19: "The House",
+        gal20: "House Dishes",
+        gal21: "Bar & Wines",
+        gal22: "Table Details",
+        gal23: "Table Service",
+        gal24: "The Menu & Wines",
+        cellarTitle: "🍷 The Cellar & the Tasting",
+        cellarIntro: "<strong>Climate-controlled cellar</strong> in the basement with an expert selection of South American and French wines at a fair price. We host <strong>wine pairing dinners</strong> and <strong>tasting courses</strong> — ask about the next event.",
+        cellar1: "Climate-Controlled Cellar",
+        cellar2: "Burgundy 🇫🇷",
+        cellar3: "Cabernet Sauvignon",
+        cellar4: "Concha y Toro 🇨🇱",
+        cellar5: "Marius",
+        cellar6: "Studio Wine",
+        cellar7: "Syrah",
+        cellar8: "Valduero",
+        cellar9: "White Wine",
+        videoTitle: "Video · House Walkthrough",
+        videoCap1: "Walkthrough of the house & dining room",
+        videoCap2: "The cellar & the wine offer",
+        menuTitle: "Digital Menu",
+        menuNote: "Menu in pictures — tap any photo to view it full-size. Prices are confirmed when you order.",
+        tabCarta: "The Menu",
+        tabEntradas: "Starters & Soups",
+        tabAves: "Poultry & Fish",
+        tabCarnes: "Meats",
+        tabEnsaladas: "Salads, Risottos & Pastas",
+        menuImg1: "The Menu · Chef Olivier Gayet",
+        menuImg2: "Poultry & Fish",
+        menuImg3: "Meats",
+        menuImg4: "Salads, Risottos & Pastas",
+        menuImg5: "Starters & Soups",
+        bookingTitle: "Table Reservation",
+        bookingSub: "Directly on-site or by WhatsApp. We arrange tastings, pairing dinners and private events.",
+        lblName: "Full Name",
+        lblPhone: "WhatsApp / Phone",
+        lblDate: "Date",
+        lblTime: "Time",
+        lblParty: "Guests",
+        lblOption: "Reservation Option",
+        lblPayment: "Payment Method",
+        btnSubmit: "Confirm Booking",
+        optFree: "Standard Table Booking (No upfront fee)",
+        optCata: "Wine Tasting Experience (150,000 PYG / ~$20 USD)",
+        optDegustacion: "Tasting Menu with Wine Pairing (350,000 PYG / ~$47 USD)",
+        payQR: "💳 QR / SIPAP",
+        payBTC: "⚡ Bitcoin / LN",
+        payCard: "🌐 Card",
+        payCash: "💵 Pay In-Store",
+        modalTitle: "Scan to Pay",
+        modalDesc: "Pay your reservation instantly.",
+        modalAmount: "Amount: {amount} PYG",
+        modalClose: "Close",
+        modalBtcTitle: "⚡ Bitcoin (Lightning) Payment",
+        modalQrTitle: "💳 Pay via QR / SIPAP",
+        textWhatsappDesc: "Prefer to chat directly on WhatsApp?",
+        btnWhatsapp: "💬 Message us on WhatsApp",
+        footerText: "Le Sommelier · Bar à Vin & Restaurante · Cap. Denis Roa 1543, Asunción · All rights reserved.",
+        footerCrypto: "🍷 Good food, good wine — a corner of France in the heart of Asunción.",
+        confirmMsg: "Booking sent via WhatsApp! We'll confirm shortly. See you at Le Sommelier! 🍷",
+        waBookingIntro: "Hello Le Sommelier! I'd like to book a table:",
+        waFieldName: "Name",
+        waFieldPhone: "Phone",
+        waFieldDate: "Date",
+        waFieldTime: "Time",
+        waFieldParty: "Guests",
+        waFieldOption: "Option",
+        waFieldPayment: "Payment"
+    },
+    pt: {
+        demoBanner: "👀 Isso é apenas uma prévia do que o seu site poderia ser —",
+        demoBannerCta: "Gostou? Veja a proposta comercial aqui →",
+        locationShort: "📍 Cap. Denis Roa 1543 · Assunção",
+        brandTag: "LE SOMMELIER · BAR À VIN & RESTAURANT",
+        tagline: "A mesa paraguaia com alma francesa",
+        heroSubtitle: "Culinária francesa e europeia de autor, uma adega climatizada com vinhos sul-americanos a preço justo e um ambiente acolhedor em Ycuá Satí. Do chef Olivier Gayet — para quem ama bom vinho e boa mesa.",
+        ctaBook: "Reserve uma mesa",
+        ctaCellar: "🍷 Adega & Degustações",
+        badgeFrench: "Culinária Francesa",
+        badgeWine: "Bar à Vin",
+        badgeCellar: "Adega Climatizada",
+        badgeTasting: "Degustações & Harmonizações",
+        hoursTitle: "🕒 Horários",
+        hoursText: CONFIG.hours.pt,
+        locationTitle: "📍 Localização",
+        locationText: "Cap. Denis Roa 1543 quase Av. Sta. Teresa.<br>Ycuá Satí, Assunção, Paraguai.",
+        mapBtnText: "📍 Ver no Google Maps",
+        contactTitle: "📲 Contato Direto",
+        waDisplay: CONFIG.waDisplay,
+        galleryTitle: "Galeria & Pratos da Casa",
+        galleryNote: "Fotos reais da casa e da nossa ficha no Google Maps. Toque em qualquer foto para ampliar.",
+        gal01: "Salão & Ambiente",
+        gal02: "A Entrada",
+        gal03: "Adega Climatizada",
+        gal04: "Adega & Garrafas",
+        gal05: "A Seleção do Sommelier",
+        gal06: "Escargots de Bourgogne",
+        gal07: "Salmão Grelhado",
+        gal08: "Salmão com Espinafre",
+        gal09: "Steak & Batatas",
+        gal10: "Carnes & Verduras",
+        gal11: "Crème Brûlée",
+        gal12: "Sobremesa da Casa",
+        gal13: "Vinho da Borgonha",
+        gal14: "Cabernet Sauvignon",
+        gal15: "Vinho Branco",
+        gal16: "Valduero",
+        gal17: "Syrah",
+        gal18: "Ambiente & Serviço",
+        gal19: "A Casa",
+        gal20: "Pratos da Casa",
+        gal21: "Bar & Vinhos",
+        gal22: "Detalhes da Mesa",
+        gal23: "Serviço de Mesa",
+        gal24: "A Carta & Vinhos",
+        cellarTitle: "🍷 A Adega & a Degustação",
+        cellarIntro: "<strong>Adega climatizada</strong> no subsolo com uma seleção de especialistas de vinhos sul-americanos e franceses a preço justo. Organizamos <strong>jantares harmonizados</strong> e <strong>cursos de degustação</strong> — pergunte pelo próximo encontro.",
+        cellar1: "Adega Climatizada",
+        cellar2: "Borgonha 🇫🇷",
+        cellar3: "Cabernet Sauvignon",
+        cellar4: "Concha y Toro 🇨🇱",
+        cellar5: "Marius",
+        cellar6: "Studio Wine",
+        cellar7: "Syrah",
+        cellar8: "Valduero",
+        cellar9: "Vinho Branco",
+        videoTitle: "Vídeo · Tour da Casa",
+        videoCap1: "Tour pela casa & o salão",
+        videoCap2: "A adega & a proposta de vinhos",
+        menuTitle: "Cardápio Digital",
+        menuNote: "Cardápio em imagem — toque em qualquer foto para ampliar. Os preços são confirmados no momento do pedido.",
+        tabCarta: "A Carta",
+        tabEntradas: "Entradas & Sopas",
+        tabAves: "Aves & Peixes",
+        tabCarnes: "Carnes",
+        tabEnsaladas: "Saladas, Risotos & Massas",
+        menuImg1: "A Carta · Menu do Chef Olivier Gayet",
+        menuImg2: "Aves & Peixes",
+        menuImg3: "Carnes",
+        menuImg4: "Saladas, Risotos & Massas",
+        menuImg5: "Entradas & Sopas",
+        bookingTitle: "Reserva de Mesa",
+        bookingSub: "Direto no local ou pelo WhatsApp. Organizamos degustações, jantares harmonizados e eventos privados.",
+        lblName: "Nome Completo",
+        lblPhone: "WhatsApp / Telefone",
+        lblDate: "Data",
+        lblTime: "Hora",
+        lblParty: "Pessoas",
+        lblOption: "Opção de Reserva",
+        lblPayment: "Forma de Pagamento",
+        btnSubmit: "Confirmar Reserva",
+        optFree: "Reserva de Mesa Padrão (Sem custo prévio)",
+        optCata: "Experiência de Degustação de Vinhos (150.000 PYG / ~$20 USD)",
+        optDegustacion: "Menu Degustação com Harmonização (350.000 PYG / ~$47 USD)",
+        payQR: "💳 QR / SIPAP",
+        payBTC: "⚡ Bitcoin / LN",
+        payCard: "🌐 Cartão",
+        payCash: "💵 Pagar no Local",
+        modalTitle: "Escaneie para Pagar",
+        modalDesc: "Pague sua reserva instantaneamente.",
+        modalAmount: "Valor: {amount} PYG",
+        modalClose: "Fechar",
+        modalBtcTitle: "⚡ Pagamento com Bitcoin (Lightning)",
+        modalQrTitle: "💳 Pagamento via QR / SIPAP",
+        textWhatsappDesc: "Prefere falar direto pelo WhatsApp?",
+        btnWhatsapp: "💬 Falar pelo WhatsApp",
+        footerText: "Le Sommelier · Bar à Vin & Restaurante · Cap. Denis Roa 1543, Assunção · Todos os direitos reservados.",
+        footerCrypto: "🍷 Boa mesa, bons vinhos — um pedaço da França no coração de Assunção.",
+        confirmMsg: "Reserva enviada pelo WhatsApp! Confirmamos em breve. Até logo no Le Sommelier! 🍷",
+        waBookingIntro: "Olá Le Sommelier! Quero reservar uma mesa:",
+        waFieldName: "Nome",
+        waFieldPhone: "Telefone",
+        waFieldDate: "Data",
+        waFieldTime: "Hora",
+        waFieldParty: "Pessoas",
+        waFieldOption: "Opção",
+        waFieldPayment: "Pagamento"
+    },
+    de: {
+        demoBanner: "👀 Das ist nur eine Vorschau davon, wie Ihre Website aussehen könnte —",
+        demoBannerCta: "Gefällt es Ihnen? Hier geht's zum Geschäftsvorschlag →",
+        locationShort: "📍 Cap. Denis Roa 1543 · Asunción",
+        brandTag: "LE SOMMELIER · BAR À VIN & RESTAURANT",
+        tagline: "Der paraguayische Tisch mit französischer Seele",
+        heroSubtitle: "Signature französische und europäische Küche, ein klimatisierter Weinkeller mit südamerikanischen Weinen zu fairen Preisen und eine warme Atmosphäre in Ycuá Satí. Vom Küchenchef Olivier Gayet — für alle, die guten Wein und gutes Essen lieben.",
+        ctaBook: "Tisch reservieren",
+        ctaCellar: "🍷 Weinkeller & Verkostungen",
+        badgeFrench: "Französische Küche",
+        badgeWine: "Bar à Vin",
+        badgeCellar: "Klimatisierter Weinkeller",
+        badgeTasting: "Verkostungen & Pairings",
+        hoursTitle: "🕒 Öffnungszeiten",
+        hoursText: CONFIG.hours.de,
+        locationTitle: "📍 Standort",
+        locationText: "Cap. Denis Roa 1543 Ecke Sta.-Teresa-Ave.<br>Ycuá Satí, Asunción, Paraguay.",
+        mapBtnText: "📍 Auf Google Maps anzeigen",
+        contactTitle: "📲 Direktkontakt",
+        waDisplay: CONFIG.waDisplay,
+        galleryTitle: "Galerie & Hausgerichte",
+        galleryNote: "Echte Fotos aus unserem Haus und Google-Maps-Eintrag. Tippen Sie auf ein Foto, um es zu vergrößern.",
+        gal01: "Speisesaal & Atmosphäre",
+        gal02: "Der Eingang",
+        gal03: "Klimatisierter Weinkeller",
+        gal04: "Weinkeller & Flaschen",
+        gal05: "Die Auswahl des Sommeliers",
+        gal06: "Escargots de Bourgogne",
+        gal07: "Gegrillter Lachs",
+        gal08: "Lachs mit Spinat",
+        gal09: "Steak & Kartoffeln",
+        gal10: "Fleisch & Gemüse",
+        gal11: "Crème Brûlée",
+        gal12: "Hausdessert",
+        gal13: "Burgunder",
+        gal14: "Cabernet Sauvignon",
+        gal15: "Weißwein",
+        gal16: "Valduero",
+        gal17: "Syrah",
+        gal18: "Atmosphäre & Service",
+        gal19: "Das Haus",
+        gal20: "Hausgerichte",
+        gal21: "Bar & Weine",
+        gal22: "Tischdetails",
+        gal23: "Tischservice",
+        gal24: "Die Karte & Weine",
+        cellarTitle: "🍷 Der Weinkeller & die Verkostung",
+        cellarIntro: "<strong>Klimatisierter Weinkeller</strong> im Untergeschoss mit einer Expertenauswahl südamerikanischer und französischer Weine zu fairen Preisen. Wir veranstalten <strong>Weinbegleit-Dinners</strong> und <strong>Verkostungskurse</strong> — fragen Sie nach dem nächsten Termin.",
+        cellar1: "Klimatisierter Weinkeller",
+        cellar2: "Burgund 🇫🇷",
+        cellar3: "Cabernet Sauvignon",
+        cellar4: "Concha y Toro 🇨🇱",
+        cellar5: "Marius",
+        cellar6: "Studio Wine",
+        cellar7: "Syrah",
+        cellar8: "Valduero",
+        cellar9: "Weißwein",
+        videoTitle: "Video · Hausrundgang",
+        videoCap1: "Rundgang durch Haus & Speisesaal",
+        videoCap2: "Der Weinkeller & das Weinangebot",
+        menuTitle: "Digitale Speisekarte",
+        menuNote: "Speisekarte als Bild — tippen Sie auf ein Foto, um es zu vergrößern. Preise werden bei der Bestellung bestätigt.",
+        tabCarta: "Die Karte",
+        tabEntradas: "Vorspeisen & Suppen",
+        tabAves: "Geflügel & Fisch",
+        tabCarnes: "Fleisch",
+        tabEnsaladas: "Salate, Risottos & Pasta",
+        menuImg1: "Die Karte · Menü von Küchenchef Olivier Gayet",
+        menuImg2: "Geflügel & Fisch",
+        menuImg3: "Fleisch",
+        menuImg4: "Salate, Risottos & Pasta",
+        menuImg5: "Vorspeisen & Suppen",
+        bookingTitle: "Tischreservierung",
+        bookingSub: "Direkt im Lokal oder per WhatsApp. Wir organisieren Verkostungen, Weinbegleit-Dinners und private Events.",
+        lblName: "Vollständiger Name",
+        lblPhone: "WhatsApp / Telefon",
+        lblDate: "Datum",
+        lblTime: "Uhrzeit",
+        lblParty: "Personen",
+        lblOption: "Reservierungsoption",
+        lblPayment: "Zahlungsmethode",
+        btnSubmit: "Reservierung bestätigen",
+        optFree: "Standard-Tischreservierung (Kostenlos)",
+        optCata: "Weinverkostungs-Erlebnis (150.000 PYG / ~$20 USD)",
+        optDegustacion: "Degustationsmenü mit Weinbegleitung (350.000 PYG / ~$47 USD)",
+        payQR: "💳 QR / SIPAP",
+        payBTC: "⚡ Bitcoin / LN",
+        payCard: "🌐 Karte",
+        payCash: "💵 Im Lokal zahlen",
+        modalTitle: "Zum Bezahlen scannen",
+        modalDesc: "Bezahlen Sie Ihre Reservierung sofort.",
+        modalAmount: "Betrag: {amount} PYG",
+        modalClose: "Schließen",
+        modalBtcTitle: "⚡ Bitcoin (Lightning) Zahlung",
+        modalQrTitle: "💳 Zahlung via QR / SIPAP",
+        textWhatsappDesc: "Lieber direkt über WhatsApp sprechen?",
+        btnWhatsapp: "💬 Über WhatsApp schreiben",
+        footerText: "Le Sommelier · Bar à Vin & Restaurante · Cap. Denis Roa 1543, Asunción · Alle Rechte vorbehalten.",
+        footerCrypto: "🍷 Gutes Essen, guter Wein — ein Stück Frankreich im Herzen von Asunción.",
+        confirmMsg: "Reservierung per WhatsApp gesendet! Wir bestätigen bald. Wir freuen uns auf Sie im Le Sommelier! 🍷",
+        waBookingIntro: "Hallo Le Sommelier! Ich möchte einen Tisch reservieren:",
+        waFieldName: "Name",
+        waFieldPhone: "Telefon",
+        waFieldDate: "Datum",
+        waFieldTime: "Uhrzeit",
+        waFieldParty: "Personen",
+        waFieldOption: "Option",
+        waFieldPayment: "Zahlung"
+    },
+    fr: {
+        demoBanner: "👀 Ceci n'est qu'un aperçu de ce que pourrait être votre site web —",
+        demoBannerCta: "Ça vous plaît ? Découvrez la proposition commerciale ici →",
+        locationShort: "📍 Cap. Denis Roa 1543 · Asunción",
+        brandTag: "LE SOMMELIER · BAR À VIN & RESTAURANT",
+        tagline: "La table paraguayenne avec une âme française",
+        heroSubtitle: "Cuisine française et européenne de créateur, une cave climatisée avec des vins sud-américains à prix juste et une ambiance chaleureuse à Ycuá Satí. Du chef Olivier Gayet — pour ceux qui aiment le bon vin et la bonne table.",
+        ctaBook: "Réserver une table",
+        ctaCellar: "🍷 Cave & Dégustations",
+        badgeFrench: "Cuisine Française",
+        badgeWine: "Bar à Vin",
+        badgeCellar: "Cave Climatisée",
+        badgeTasting: "Dégustations & Accords",
+        hoursTitle: "🕒 Horaires",
+        hoursText: CONFIG.hours.fr,
+        locationTitle: "📍 Localisation",
+        locationText: "Cap. Denis Roa 1543, presque Av. Sta. Teresa.<br>Ycuá Satí, Asunción, Paraguay.",
+        mapBtnText: "📍 Voir sur Google Maps",
+        contactTitle: "📲 Contact Direct",
+        waDisplay: CONFIG.waDisplay,
+        galleryTitle: "Galerie & Plats de la Maison",
+        galleryNote: "Photos réelles de la maison et de notre fiche Google Maps. Touchez une photo pour l'agrandir.",
+        gal01: "Salle & Ambiance",
+        gal02: "L'Entrée",
+        gal03: "Cave Climatisée",
+        gal04: "Cave & Bouteilles",
+        gal05: "La Sélection du Sommelier",
+        gal06: "Escargots de Bourgogne",
+        gal07: "Saumon Grillé",
+        gal08: "Saumon aux Épinards",
+        gal09: "Steak & Pommes",
+        gal10: "Viandes & Légumes",
+        gal11: "Crème Brûlée",
+        gal12: "Dessert de la Maison",
+        gal13: "Vin de Bourgogne",
+        gal14: "Cabernet Sauvignon",
+        gal15: "Vin Blanc",
+        gal16: "Valduero",
+        gal17: "Syrah",
+        gal18: "Ambiance & Service",
+        gal19: "La Maison",
+        gal20: "Plats de la Maison",
+        gal21: "Bar & Vins",
+        gal22: "Détails de la Table",
+        gal23: "Service de Table",
+        gal24: "La Carte & Vins",
+        cellarTitle: "🍷 La Cave & la Dégustation",
+        cellarIntro: "<strong>Cave climatisée</strong> au sous-sol avec une sélection d'experts de vins sud-américains et français à prix juste. Nous organisons des <strong>dîners d'accords mets-vins</strong> et des <strong>cours de dégustation</strong> — demandez le prochain rendez-vous.",
+        cellar1: "Cave Climatisée",
+        cellar2: "Bourgogne 🇫🇷",
+        cellar3: "Cabernet Sauvignon",
+        cellar4: "Concha y Toro 🇨🇱",
+        cellar5: "Marius",
+        cellar6: "Studio Wine",
+        cellar7: "Syrah",
+        cellar8: "Valduero",
+        cellar9: "Vin Blanc",
+        videoTitle: "Vidéo · Visite de la Maison",
+        videoCap1: "Visite de la maison & de la salle",
+        videoCap2: "La cave & l'offre de vins",
+        menuTitle: "Carte Digitale",
+        menuNote: "Carte en image — touchez une photo pour l'agrandir. Les prix sont confirmés au moment de la commande.",
+        tabCarta: "La Carte",
+        tabEntradas: "Entrées & Soupes",
+        tabAves: "Volailles & Poissons",
+        tabCarnes: "Viandes",
+        tabEnsaladas: "Salades, Risottos & Pâtes",
+        menuImg1: "La Carte · Menu du Chef Olivier Gayet",
+        menuImg2: "Volailles & Poissons",
+        menuImg3: "Viandes",
+        menuImg4: "Salades, Risottos & Pâtes",
+        menuImg5: "Entrées & Soupes",
+        bookingTitle: "Réservation de Table",
+        bookingSub: "Directement sur place ou par WhatsApp. Nous organisons dégustations, dîners d'accords et événements privés.",
+        lblName: "Nom Complet",
+        lblPhone: "WhatsApp / Téléphone",
+        lblDate: "Date",
+        lblTime: "Heure",
+        lblParty: "Personnes",
+        lblOption: "Option de Réservation",
+        lblPayment: "Méthode de Paiement",
+        btnSubmit: "Confirmer la Réservation",
+        optFree: "Réservation de Table Standard (Sans frais préalables)",
+        optCata: "Expérience de Dégustation de Vins (150.000 PYG / ~20 $US)",
+        optDegustacion: "Menu Dégustation avec Accords (350.000 PYG / ~47 $US)",
+        payQR: "💳 QR / SIPAP",
+        payBTC: "⚡ Bitcoin / LN",
+        payCard: "🌐 Carte",
+        payCash: "💵 Sur Place / Espèces",
+        modalTitle: "Scannez pour Payer",
+        modalDesc: "Payez votre réservation instantanément.",
+        modalAmount: "Montant : {amount} PYG",
+        modalClose: "Fermer",
+        modalBtcTitle: "⚡ Paiement en Bitcoin (Lightning)",
+        modalQrTitle: "💳 Paiement via QR / SIPAP",
+        textWhatsappDesc: "Vous préférez discuter directement sur WhatsApp ?",
+        btnWhatsapp: "💬 Écrire sur WhatsApp",
+        footerText: "Le Sommelier · Bar à Vin & Restaurante · Cap. Denis Roa 1543, Asunción · Tous droits réservés.",
+        footerCrypto: "🍷 Bonne table, bons vins — un coin de France au cœur d'Asunción.",
+        confirmMsg: "Réservation envoyée via WhatsApp ! Nous confirmons rapidement. À bientôt au Le Sommelier ! 🍷",
+        waBookingIntro: "Bonjour Le Sommelier ! Je souhaite réserver une table :",
+        waFieldName: "Nom",
+        waFieldPhone: "Téléphone",
+        waFieldDate: "Date",
+        waFieldTime: "Heure",
+        waFieldParty: "Personnes",
+        waFieldOption: "Option",
+        waFieldPayment: "Paiement"
+    }
+};
+
+const SUPPORTED_LANGS = Object.keys(i18n);
+let currentLang = 'es';
+let selectedPaymentMethod = 'qr';
+
+/* ---------------- Menu images data ---------------- */
+const MENU_IMAGES = [
+    { cat: 'carta', src: 'assets/img/menu-01.webp', key: 'menuImg1', alt: 'Le Sommelier — La Carta' },
+    { cat: 'aves', src: 'assets/img/menu-02-aves-pescados.webp', key: 'menuImg2', alt: 'Le Sommelier — Aves & Pescados' },
+    { cat: 'carnes', src: 'assets/img/menu-03-carnes.webp', key: 'menuImg3', alt: 'Le Sommelier — Carnes' },
+    { cat: 'ensaladas', src: 'assets/img/menu-04-ensaladas-risottos-pastas.webp', key: 'menuImg4', alt: 'Le Sommelier — Ensaladas, Risottos & Pastas' },
+    { cat: 'entradas', src: 'assets/img/menu-05-entradas-sopas.webp', key: 'menuImg5', alt: 'Le Sommelier — Entradas & Sopas' }
+];
+
+/* ---------------- i18n engine ---------------- */
+function applyTranslations(lang) {
+    const t = i18n[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+
+    // Modal static strings
+    document.getElementById('modal-title').textContent = t.modalTitle;
+    document.getElementById('modal-desc').textContent = t.modalDesc;
+    document.getElementById('modal-close-text').textContent = t.modalClose;
+
+    // Booking option select options
+    const select = document.getElementById('passOption');
+    select.options[0].text = t.optFree;
+    select.options[1].text = t.optCata;
+    select.options[2].text = t.optDegustacion;
+
+    // Payment options labels
+    const payOpts = document.querySelectorAll('.payment-option');
+    payOpts[0].textContent = t.payQR;
+    payOpts[1].textContent = t.payBTC;
+    payOpts[2].textContent = t.payCard;
+    payOpts[3].textContent = t.payCash;
+
+    // Menu image captions
+    MENU_IMAGES.forEach(img => {
+        const el = document.querySelector(`#menuTrack [data-menu-img="${img.cat}"] .menu-img-cap`);
+        if (el && t[img.key] !== undefined) el.textContent = t[img.key];
+    });
+
+    document.documentElement.lang = lang;
+}
+
+function switchLang(lang) {
+    if (!i18n[lang]) return;
+    currentLang = lang;
+    try { localStorage.setItem('lesommelier_lang', lang); } catch (e) {}
+
+    SUPPORTED_LANGS.forEach(l => {
+        const btn = document.getElementById(`btn-${l}`);
+        const active = lang === l;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
+    });
+
+    applyTranslations(lang);
+}
+
+function detectLang() {
+    let lang = null;
+    try { lang = localStorage.getItem('lesommelier_lang'); } catch (e) {}
+    if (!lang && navigator.language) lang = navigator.language.split('-')[0];
+    if (SUPPORTED_LANGS.includes(lang)) return lang;
+    return 'es';
+}
+
+/* ---------------- Menu tabs & images ---------------- */
+function renderMenuImages() {
+    const track = document.getElementById('menuTrack');
+    track.innerHTML = '';
+    MENU_IMAGES.forEach(img => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.setAttribute('data-menu-img', img.cat);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'img-wrap';
+        const imgEl = document.createElement('img');
+        imgEl.src = img.src;
+        imgEl.alt = img.alt;
+        imgEl.loading = 'lazy';
+        imgEl.addEventListener('click', () => openLightbox(imgEl));
+        wrap.appendChild(imgEl);
+
+        const cap = document.createElement('p');
+        cap.className = 'menu-img-cap';
+        cap.textContent = i18n[currentLang][img.key] || img.alt;
+
+        card.appendChild(wrap);
+        card.appendChild(cap);
+        track.appendChild(card);
+    });
+}
+
+function switchMenuTab(btn) {
+    document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.getAttribute('data-cat');
+    const carousel = document.getElementById('menuCarousel');
+    const track = carousel.querySelector('.carousel-track');
+    const idx = MENU_IMAGES.findIndex(img => img.cat === cat);
+    if (idx >= 0) track.scrollTo({ left: idx * cardStep(track), behavior: 'smooth' });
+}
+
+/* ---------------- Payment selection ---------------- */
+function selectPayment(element, method) {
+    document.querySelectorAll('.payment-option').forEach(el => {
+        el.classList.remove('selected');
+        el.setAttribute('aria-checked', 'false');
+    });
+    element.classList.add('selected');
+    element.setAttribute('aria-checked', 'true');
+    selectedPaymentMethod = method;
+}
+
+// Keyboard support for the custom radio-like payment options
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement.classList.contains('payment-option')) {
+        e.preventDefault();
+        document.activeElement.click();
+    }
+});
+
+/* ---------------- Booking ---------------- */
+function fmtPrice(p) {
+    return p.toLocaleString('es-PY').replace(/,/g, '.');
+}
+
+function buildWaMessage() {
+    const t = i18n[currentLang];
+    const optionEl = document.getElementById('passOption');
+    const option = optionEl.value;
+    const optionLabel = option === 'free' ? t.optFree : (option === 'cata' ? t.optCata : t.optDegustacion);
+    const payLabels = { qr: t.payQR, btc: t.payBTC, card: t.payCard, cash: t.payCash };
+    return [
+        t.waBookingIntro,
+        '• ' + t.waFieldName + ': ' + document.getElementById('fld-name').value,
+        '• ' + t.waFieldPhone + ': ' + document.getElementById('fld-phone').value,
+        '• ' + t.waFieldDate + ': ' + document.getElementById('fld-date').value,
+        '• ' + t.waFieldTime + ': ' + document.getElementById('fld-time').value,
+        '• ' + t.waFieldParty + ': ' + document.getElementById('fld-party').value,
+        '• ' + t.waFieldOption + ': ' + optionLabel,
+        '• ' + t.waFieldPayment + ': ' + (payLabels[selectedPaymentMethod] || t.payCash)
+    ].join('\n');
+}
+
+function submitBooking() {
+    const form = document.getElementById('bookingForm');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const option = document.getElementById('passOption').value;
+    const isPaidOption = option !== 'free';
+
+    if (!isPaidOption || selectedPaymentMethod === 'cash') {
+        const url = WA_LINK + '?text=' + encodeURIComponent(buildWaMessage());
+        window.open(url, '_blank');
+    } else {
+        const modal = document.getElementById('paymentModal');
+        const qrBox = document.getElementById('qr-box');
+        const title = document.getElementById('modal-title');
+        const amount = CONFIG.comboPrices[option] || 150000;
+
+        if (selectedPaymentMethod === 'btc') {
+            title.textContent = i18n[currentLang].modalBtcTitle;
+            qrBox.textContent = "[ LIGHTNING QR CODE ]";
+            qrBox.style.color = "#f7931a";
+        } else {
+            title.textContent = i18n[currentLang].modalQrTitle;
+            qrBox.textContent = "[ SIPAP / QR PARAGUAY ]";
+            qrBox.style.color = "#0088cc";
+        }
+        document.getElementById('modal-amount').textContent = i18n[currentLang].modalAmount.replace('{amount}', fmtPrice(amount));
+        modal.style.display = 'flex';
+    }
+}
+
+function handleBooking(e) {
+    e.preventDefault();
+    submitBooking();
+}
+
+function closeModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+}
+
+/* ---------------- Gallery Lightbox ---------------- */
+function openLightbox(img) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+/* ---------------- Video Play Toggle ---------------- */
+function toggleVideo(id, btn) {
+    const video = document.getElementById(id);
+    const card = btn.parentElement;
+    if (video.paused) {
+        video.play();
+        card.classList.add('playing');
+    } else {
+        video.pause();
+        card.classList.remove('playing');
+    }
+}
+
+/* ---------------- Reusable carousel ---------------- */
+function cardStep(track) {
+    const cards = track.children;
+    if (cards.length < 2) return cards[0] ? cards[0].offsetWidth : 0;
+    return cards[1].offsetLeft - cards[0].offsetLeft;
+}
+
+function carouselStep(btn, dir) {
+    const track = btn.closest('.carousel').querySelector('.carousel-track');
+    track.scrollBy({ left: dir * cardStep(track), behavior: 'smooth' });
+}
+
+function updateArrows(carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const prev = carousel.querySelector('.carousel-arrow.prev');
+    const next = carousel.querySelector('.carousel-arrow.next');
+    const maxScroll = track.scrollWidth - track.clientWidth - 2;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= maxScroll;
+}
+
+function updateDots(carousel, dotsEl) {
+    const track = carousel.querySelector('.carousel-track');
+    const step = cardStep(track) || 1;
+    const activeIndex = Math.round(track.scrollLeft / step);
+    Array.from(dotsEl.children).forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+}
+
+function initCarousels() {
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const dotsEl = carousel.parentElement.querySelector('.carousel-dots');
+        const cards = Array.from(track.children);
+
+        if (dotsEl) {
+            dotsEl.innerHTML = '';
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `${i + 1}/${cards.length}`);
+                dot.addEventListener('click', () => {
+                    track.scrollTo({ left: i * cardStep(track), behavior: 'smooth' });
+                });
+                dotsEl.appendChild(dot);
+            });
+        }
+
+        const onScroll = () => {
+            updateArrows(carousel);
+            if (dotsEl) updateDots(carousel, dotsEl);
+        };
+
+        track.addEventListener('scroll', () => window.requestAnimationFrame(onScroll), { passive: true });
+        onScroll();
+    });
+}
+
+window.addEventListener('resize', () => {
+    document.querySelectorAll('[data-carousel]').forEach(c => updateArrows(c));
+});
+
+/* ---------------- WhatsApp deep links ---------------- */
+function buildWaLink(text) {
+    return WA_LINK + '?text=' + encodeURIComponent(text);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Set config-driven links
+    document.getElementById('waLink').href = buildWaLink('Hola Le Sommelier, quiero hacer una consulta.');
+    document.getElementById('waCTA').href = buildWaLink('Hola Le Sommelier, quiero reservar una mesa.');
+
+    renderMenuImages();
+    currentLang = detectLang();
+    switchLang(currentLang);
+    initCarousels();
+
+    // Lightbox: click any gallery image to enlarge
+    document.querySelectorAll('.gallery-card img').forEach(img => {
+        img.addEventListener('click', () => openLightbox(img));
+    });
+    document.getElementById('lightbox').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Hide the custom play overlay when the video starts playing via its controls
+    document.querySelectorAll('.video-card video').forEach(v => {
+        v.addEventListener('play', () => v.parentElement.classList.add('playing'));
+        v.addEventListener('pause', () => v.parentElement.classList.remove('playing'));
+    });
+
+    // Default date = today
+    const dateInput = document.getElementById('fld-date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+    dateInput.value = today;
+});
+</script>
+</body>
+</html>
